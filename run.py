@@ -1,6 +1,6 @@
 # example of plotting the adam search on a contour plot of the test function
 from math import sqrt
-from numpy import asarray
+from numpy import asarray, absolute
 from numpy import arange, sign
 from numpy.random import rand
 from numpy.random import seed
@@ -23,6 +23,8 @@ def adam(objective, derivative, bounds, n_iter, alpha, beta1, beta2, eps=1e-8):
     solutions = list()
     # generate an initial point
     x = bounds[:, 0] + rand(len(bounds)) * (bounds[:, 1] - bounds[:, 0])
+    x_before = x.copy()
+    x_before_before = x.copy()
     r = bounds[:, 0] + rand(len(bounds)) * (bounds[:, 1] - bounds[:, 0])
     score = objective(x[0], x[1])
     # initialize first and second moments
@@ -43,12 +45,14 @@ def adam(objective, derivative, bounds, n_iter, alpha, beta1, beta2, eps=1e-8):
             # vhat(t) = v(t) / (1 - beta2(t))
             vhat = v[i] / (1.0 - beta2 ** (t + 1))
             # x(t) = x(t-1) - alpha * mhat(t) / (sqrt(vhat(t)) + ep)
-            d = (x[i - 1] - x[i - 2]) * sign(g[i]) * (1 - beta1)
+            d = absolute((x_before_before[i] - x_before[i])) * sign(g[i]) * (1 - beta1)
             print(d)
             # x[i] = x[i] - alpha * mhat / (sqrt(vhat) + eps)
-            x[i] = x[i] - (mhat * beta1 / (sqrt(vhat + eps)) + d)
+            x[i] = x[i] - (alpha *mhat * beta1 / (sqrt(vhat + eps)) + d)
         # evaluate candidate point
         score = objective(x[0], x[1])
+        x_before_before = x_before
+        x_before = x.copy()
         # keep track of solutions
         solutions.append(x.copy())
         # report progress
@@ -61,7 +65,7 @@ seed(1)
 # define range for input
 bounds = asarray([[-1.0, 1.0], [-1.0, 1.0]])
 # define the total iterations
-n_iter = 10
+n_iter = 60
 # steps size
 alpha = 0.02
 # factor for average gradient
