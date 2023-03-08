@@ -51,6 +51,9 @@ class CustomAdamWOptimizer(AdamOptimizer):
         #     absolute(prev - prev_prev) * sign(grad) * (1 - self.beta_1)
         #     for prev, prev_prev, grad in zip(self.previous_update, self.previous_previous_update, grads)]
 
+        # TODO: make sure that's correct
+        # https://towardsdatascience.com/why-adamw-matters-736223f31b5d
+        # https://arxiv.org/pdf/1711.05101v3.pdf
         updates = [
             -self.learning_rate * (m / (np.sqrt(v) + self.epsilon) + self.weight_decay*prev)
             for m, v, prev in zip(self.ms, self.vs, self.previous_update)

@@ -7,4 +7,6 @@ The code can be run now.
 
 ### Explanation:
 custom-sklearn is scikit-learn==1.2.1 with custom `_multilayer_perceptron.py`
-file to support additional solvers, our `custom_aadam` etc.
+file to support additional solvers, our `custom_aadam`, 'custom_adamW' etc.
+Note that each time you edit `custom-sklearn/sklearn/neural_network/_multilayer_perceptron.py` 
+you have to build the package again in order to changes take place 
