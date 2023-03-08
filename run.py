@@ -18,19 +18,6 @@ class AAdamOptimizer(AdamOptimizer):
         self.previous_previous_update = [np.zeros_like(param) for param in params]
         self.ds = [np.zeros_like(param) for param in params]
 
-    def update_params(self, grads):
-        """Update parameters with given gradients
-
-        Parameters
-        ----------
-        grads : list, length = len(params)
-            Containing gradients with respect to coefs_ and intercepts_ in MLP
-            model. So length should be aligned with params
-        """
-        updates = self._get_updates(grads)
-        for param, update in zip(self.params, updates):
-            param += update
-
     def _get_updates(self, grads):
         """Get the values used to update params with given gradients
 
@@ -58,8 +45,12 @@ class AAdamOptimizer(AdamOptimizer):
             for prev, prev_prev, grad in zip(self.previous_update, self.previous_previous_update, grads)]
         updates = [-self.learning_rate * m * beta1 / (np.sqrt(v + self.epsilon)) + d
                    for m, v, d in zip(self.ms, self.vs, self.ds)]
-        self.previous_previous_update = self.previous_update
-        self.previous_update = updates
+        if np.all((self.previous_previous_update == 0)) and np.all((self.previous_update == 0)):
+            self.previous_previous_update = updates
+            self.previous_update = updates
+        else:
+            self.previous_previous_update = self.previous_update
+            self.previous_update = updates
         return updates
 
 
