@@ -39,9 +39,10 @@ from ..utils.optimize import _check_optimize_result
 from ..utils.metaestimators import available_if
 from ..utils._param_validation import StrOptions, Options, Interval
 from custom_aadam import CustomAAdamOptimizer
+from custom_adamw import CustomAdamWOptimizer
 
 
-_STOCHASTIC_SOLVERS = ["sgd", "adam", "custom_aadam"]
+_STOCHASTIC_SOLVERS = ["sgd", "adam", "custom_aadam", "custom_adamw"]
 
 
 def _pack(coefs_, intercepts_):
@@ -64,7 +65,7 @@ class BaseMultilayerPerceptron(BaseEstimator, metaclass=ABCMeta):
             Interval(Integral, 1, None, closed="left"),
         ],
         "activation": [StrOptions({"identity", "logistic", "tanh", "relu"})],
-        "solver": [StrOptions({"lbfgs", "sgd", "adam", "custom_aadam"})],
+        "solver": [StrOptions({"lbfgs", "sgd", "adam", "custom_aadam", "custom_adamw"})],
         "alpha": [Interval(Real, 0, None, closed="left")],
         "batch_size": [
             StrOptions({"auto"}),
@@ -576,6 +577,14 @@ class BaseMultilayerPerceptron(BaseEstimator, metaclass=ABCMeta):
                 )
             elif self.solver == "custom_aadam":
                 self._optimizer = CustomAAdamOptimizer(
+                    params,
+                    self.learning_rate_init,
+                    self.beta_1,
+                    self.beta_2,
+                    self.epsilon,
+                )
+            elif self.solver == "custom_adamw":
+                self._optimizer = CustomAdamWOptimizer(
                     params,
                     self.learning_rate_init,
                     self.beta_1,
