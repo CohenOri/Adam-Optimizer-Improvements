@@ -82,7 +82,7 @@ def init_params(architecture: str):
     return models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names
 
 
-models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('ultra-deep')
+models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('deep')
 
 
 def train_models(models_list: list,
@@ -104,7 +104,8 @@ def train_models(models_list: list,
 
         for i in range(1, NUM_EPOCHS + 1):
             model.fit(dataset_X_train[:TRAIN_SET_SIZE], dataset_y_train[:TRAIN_SET_SIZE], )
-            model_test_acc = model.score(dataset_X_test, dataset_y_test)
+            TEST_SET_SIZE = round(0.2 * TRAIN_SET_SIZE)
+            model_test_acc = model.score(dataset_X_test[:TEST_SET_SIZE], dataset_y_test[:TEST_SET_SIZE])
             model_acc_on_test.append(model_test_acc)
 
             if model_test_acc > model_best_test_accuracy["best_acc"]:
