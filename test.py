@@ -1,112 +1,165 @@
 import matplotlib.pyplot as plt
-# from sklearn.datasets import load_digits
+from sklearn.datasets import load_digits
 from sklearn.datasets import fetch_covtype
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import accuracy_score
 
-# Load the MNIST dataset
-# digits = load_digits()
-cover_type_dataset = fetch_covtype()
+digits = load_digits()  # Load the MNIST dataset (Easy dataset)
+cover_type_dataset = fetch_covtype()  # Load the Cover Type dataset (Harder dataset)
+
+
+def split_dataset_to_train_test(dataset_data, dataset_target):
+    X_train, X_test, y_train, y_test = train_test_split(dataset_data, dataset_target, test_size=0.2, random_state=42)
+    return X_train, X_test, y_train, y_test
+
 
 # Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(cover_type_dataset.data, cover_type_dataset.target, test_size=0.2, random_state=42)
-
-# Scale the features using StandardScaler
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-
-# Define the model architecture, warm_start are to use model.fit sequentially, max_iter=1 is in order to run only one epoch for each model.fit
-model_with_adam = MLPClassifier(hidden_layer_sizes=(512, 256, 128), activation='relu', solver='adam', alpha=0.001, max_iter=1, batch_size=128, learning_rate_init=0.001, shuffle=False, verbose=True, warm_start=True, random_state=1, n_iter_no_change=1000)
-model_with_aadam = MLPClassifier(hidden_layer_sizes=(512, 256, 128), activation='relu', solver='custom_aadam', alpha=0.001, max_iter=1, batch_size=128, learning_rate_init=0.001, shuffle=False, verbose=True, warm_start=True, random_state=1, n_iter_no_change=1000)
-model_with_adamw = MLPClassifier(hidden_layer_sizes=(512, 256, 128), activation='relu', solver='custom_adamw', alpha=0.001, max_iter=1, batch_size=128, learning_rate_init=0.001, shuffle=False, verbose=True, warm_start=True, random_state=1, n_iter_no_change=1000)
+cover_X_train, cover_X_test, cover_y_train, cover_y_test = split_dataset_to_train_test(cover_type_dataset.data,
+                                                                                       cover_type_dataset.target)
+digits_X_train, digits_X_test, digits_y_train, digits_y_test = split_dataset_to_train_test(digits.images, digits.target)
 
 
-# Train the model and save the best model with the highest test set accuracy
-# best_model = None
-best_adam_test_acc = 0
-best_adam_epoch_num = 1
-best_aadam_test_acc = 0
-best_aadam_epoch_num = 1
-best_adamw_test_acc = 0
-best_adamw_epoch_num = 1
-test_adam_accs = []
-test_aadam_accs = []
-test_adamw_accs = []
-
-"""
-Limit train test size:
-with no limit one epoch will be enough for over 95% accuracy, and we couldn't compare our solver behaviour efficiently
-Now with train size of 100 and batch size of 10 we have 10 (=100/10) calls to solver each epoch
-"""
-TRAIN_SET_SIZE = 1000
-NUM_EPOCHS = 30
-for i in range(1,NUM_EPOCHS+1):
-    model_with_adam.fit(X_train[:TRAIN_SET_SIZE], y_train[:TRAIN_SET_SIZE], )
-    model_with_aadam.fit(X_train[:TRAIN_SET_SIZE], y_train[:TRAIN_SET_SIZE], )
-    model_with_adamw.fit(X_train[:TRAIN_SET_SIZE], y_train[:TRAIN_SET_SIZE], )
-
-    test_acc_adam = model_with_adam.score(X_test, y_test)
-    test_acc_aadam = model_with_aadam.score(X_test, y_test)
-    test_acc_adamw = model_with_adamw.score(X_test, y_test)
-
-    test_adam_accs.append(test_acc_adam)
-    test_aadam_accs.append(test_acc_aadam)
-    test_adamw_accs.append(test_acc_adamw)
-
-    if test_acc_adam > best_adam_test_acc:
-        best_adam_test_acc = test_acc_adam
-        best_adam_epoch_num = i
-    if test_acc_aadam > best_aadam_test_acc:
-        best_aadam_test_acc = test_acc_aadam
-        best_aadam_epoch_num = i
-    if test_acc_adamw > best_adamw_test_acc:
-        best_adamw_test_acc = test_acc_adamw
-        best_adamw_epoch_num = i
+def preprocess_cover_dataset(cover_X_train, cover_X_test):
+    # Scale the features using StandardScaler
+    scaler = StandardScaler()
+    return scaler.fit_transform(cover_X_train), scaler.transform(cover_X_test)
 
 
-        # best_model = MLPClassifier(hidden_layer_sizes=(512, 256, 128), activation='relu', solver='adam', alpha=0.001, max_iter=1, batch_size=128, learning_rate_init=0.001)
-        # best_model.coefs_ = model.coefs_
-        # best_model.intercepts_ = model.intercepts_
-    print(f'Epoch: {i} Adam Test accuracy: {test_acc_adam}')
-    print(f'Epoch: {i} AAdam Test accuracy: {test_acc_aadam}')
-    print(f'Epoch: {i} AdamW Test accuracy: {test_acc_adamw}')
-
-print(f'Best Adam test set accuracy: {best_adam_test_acc} found at epoch #{best_adam_epoch_num}')
-print(f'Best AAdam test set accuracy: {best_aadam_test_acc} found at epoch #{best_aadam_epoch_num}')
-print(f'Best AdamW test set accuracy: {best_adamw_test_acc} found at epoch #{best_adamw_epoch_num}')
+def preprocess_digits_dataset(digits_X_train, digits_X_test):
+    # Scale the features using StandardScaler
+    scaler = StandardScaler()
+    # Scale the pixel values to be between 0 and 1
+    return scaler.fit_transform(digits_X_train.reshape(-1, 64)), scaler.transform(digits_X_test.reshape(-1, 64))
 
 
-# Create a new figure and add a subplot
-fig = plt.figure()
-ax = fig.add_subplot(111)
+cover_X_train, cover_X_test = preprocess_cover_dataset(cover_X_train, cover_X_test)
+digits_X_train, digits_X_test = preprocess_digits_dataset(digits_X_train, digits_X_test)
 
-# Plot the first score array with a blue line
-ax.plot(test_adam_accs, color='blue', linestyle='-', linewidth=2, label='Adam')
 
-# Plot the second score array with a red line
-ax.plot(test_aadam_accs, color='red', linestyle='--', linewidth=2, label='AAdam')
+def construct_model(solver: str, architecture: str = 'regular'):
+    """
+    :return:
+    Multi layer perceptron classifier with 3 layers, with given solver,
+    defined to run one iteration (==Epoch in sklearn) each time .fit() is called.
+    with Warm Start set to true = remembering the result from previous .fit() call
+    - this way we can call .fit() multiple times, each time is an epoch and test the accuracy after each epoch.
+    """
+    if architecture == 'regular':
+        layers = (512, 256, 128)  # 3 layers
+    elif architecture == 'deep':
+        layers = (256, 128, 128, 64, 64, 32)  # 6 layers
+    elif architecture == 'ultra-deep':
+        layers = (1024, 512, 256, 128, 64, 64, 32, 32, 16)  # 9 layers
+    else:
+        raise ValueError(f'No such architecture: {architecture}')
 
-# plot AdamW
-ax.plot(test_adamw_accs, color='green', linestyle='solid', linewidth=2, label='AdamW')
+    model = MLPClassifier(hidden_layer_sizes=layers,
+                          activation='relu',
+                          solver=solver,
+                          alpha=0.001, max_iter=1, batch_size=128, learning_rate_init=0.001, shuffle=False,
+                          verbose=True,
+                          warm_start=True,
+                          random_state=1,
+                          n_iter_no_change=1000)
+    return model
 
-# Add a title, x-label, and y-label to the plot
-ax.set_title('Model Scores')
-ax.set_xlabel('Epochs')
-ax.set_xlim(1, NUM_EPOCHS)
-ax.set_ylabel('Accuracy')
 
-# Add a legend to the plot
-ax.legend()
+def init_params(architecture: str):
+    # Construct models
+    model_with_adam = construct_model('adam', architecture)
+    model_with_aadam = construct_model('custom_aadam', architecture)
+    model_with_adamw = construct_model('custom_adamw', architecture)
+    model_with_sgd = construct_model('sgd', architecture)
 
-# Display the plot
-plt.show()
-fig.savefig('myplot.png', dpi=300)
+    # Initialize parameters
+    models_list = [model_with_adam, model_with_aadam, model_with_adamw, model_with_sgd]
+    models_test_accuracy = [[], [], [], []]  # empty list for each model
+    models_best_test_accuracy = [{"best_acc": 0}, {"best_acc": 0}, {"best_acc": 0}, {"best_acc": 0}]
+    models_best_epoch_num = [{"best_epoch": 1}, {"best_epoch": 1}, {"best_epoch": 1}, {"best_epoch": 1}]
+    models_names = ["Adam", "Aadam", "AdamW", "SGD"]
 
-# # Plot the test set accuracy after each epoch
-# plt.plot(test_adam_accs)
-# plt.xlabel('Epoch')
-# plt.ylabel('Test set accuracy')
-# plt.show()
+    return models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names
+
+
+models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('ultra-deep')
+
+
+def train_models(models_list: list,
+                 models_test_accuracy: list,
+                 models_best_test_accuracy: list,
+                 models_best_epoch_num: list,
+                 models_names: list,
+                 dataset_X_train, dataset_y_train,
+                 dataset_X_test, dataset_y_test,
+                 TRAIN_SET_SIZE: int = 1000, NUM_EPOCHS: int = 30):
+    """
+    Limit train test size:
+    To speed up learn speed (or in MNIST digits one epoch will be enough for over 95% accuracy and we couldn't compare our solver behaviour efficiently)
+    Note: with train size of 100 and batch size of 10 we have 10 (=100/10) calls to solver each epoch
+    """
+
+    for model, model_acc_on_test, model_best_test_accuracy, model_best_epoch_num, model_name in \
+            zip(models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names):
+
+        for i in range(1, NUM_EPOCHS + 1):
+            model.fit(dataset_X_train[:TRAIN_SET_SIZE], dataset_y_train[:TRAIN_SET_SIZE], )
+            model_test_acc = model.score(dataset_X_test, dataset_y_test)
+            model_acc_on_test.append(model_test_acc)
+
+            if model_test_acc > model_best_test_accuracy["best_acc"]:
+                model_best_test_accuracy["best_acc"] = model_test_acc
+                model_best_epoch_num["best_epoch"] = i
+
+            print(f'Model {model_name} Epoch: #{i} Test accuracy: {model_test_acc}')
+
+    for model, model_acc_on_test, model_best_test_accuracy, model_best_epoch_num, model_name \
+            in zip(models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names):
+        print(f'Best {model_name} test set accuracy: {model_best_test_accuracy} found at epoch #{model_best_epoch_num}')
+
+
+NUM_EPOCHS = 40
+TRAIN_SET_SIZE = 100000
+
+train_models(models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names,
+             cover_X_train, cover_y_train, cover_X_test, cover_y_test, TRAIN_SET_SIZE=TRAIN_SET_SIZE, NUM_EPOCHS=NUM_EPOCHS)
+
+dataset_test_adam_accs = models_test_accuracy[0]
+dataset_test_aadam_accs = models_test_accuracy[1]
+dataset_test_adamw_accs = models_test_accuracy[2]
+dataset_test_sgd_accs = models_test_accuracy[3]
+
+
+def plot_model_scores(test_adam_accs,
+                      test_aadam_accs,
+                      test_adamw_accs,
+                      test_sgd_accs,
+                      dataset_name: str,
+                      NUM_EPOCHS_FOR_SCLAE: int = 30):
+    # Create a new figure and add a subplot
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    # Plot Adam
+    ax.plot(test_adam_accs, color='blue', linestyle='solid', linewidth=2, label='Adam')
+    # Plot AAdam
+    ax.plot(test_aadam_accs, color='red', linestyle='--', linewidth=2, label='AAdam')
+    # plot AdamW
+    ax.plot(test_adamw_accs, color='green', linestyle='--', linewidth=2, label='AdamW')
+    # plot SGD
+    ax.plot(test_sgd_accs, color='yellow', linestyle='solid', linewidth=2, label='SGD')
+
+    # Add a title, x-label, and y-label to the plot
+    ax.set_title(f'Model Scores over {dataset_name}')
+    ax.set_xlabel('Epochs')
+    ax.set_xlim(1, NUM_EPOCHS_FOR_SCLAE)
+    ax.set_ylabel('Accuracy')
+    # Add a legend to the plot
+    ax.legend()
+    # Display the plot
+    plt.show()
+    fig.savefig(f'datasets_results_plots/{dataset_name}_scores.png', dpi=300)
+
+
+plot_model_scores(dataset_test_adam_accs, dataset_test_aadam_accs, dataset_test_adamw_accs, dataset_test_sgd_accs,
+                  dataset_name="Cover_Type", NUM_EPOCHS_FOR_SCLAE=NUM_EPOCHS)
