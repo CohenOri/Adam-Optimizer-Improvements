@@ -27,5 +27,55 @@ In order to save some precious coding time and help us to focus
 on our actual mission we rely on **scikit-learn** package to 
 
 # Results
+We tested the algorithms on two data sets:
+- Cover Type
+    - epochs - 40
+    - train size - 100K
+
+
+| Layers  | 
+| ---  |
+| Layers = 9  |
+| ![](datasets_results_plots/Cover_Type_scores_ultra-deep_40epoches_100K.png )
+| Layers = 6  |
+| ![](datasets_results_plots/Cover_Type_scores_deep_40epoches_100K.png)
+| Layers = 5  |
+| ![](datasets_results_plots/Cover_Type_scores_Deep-fitted_40epoches_100K.png)  |
+| Layers = 3  |
+| ![](datasets_results_plots/Cover_Type_Regular_40epoches_100K.png)  |
+
+- MNIST
+    - epochs - 40
+    - train size - 1K
+
+| Layers  | 
+| ---  |
+| Layers = 9  |
+| ![](datasets_results_plots/MNIST_digits_scores_ultra-deep_40epoch_1K.png )
+| Layers = 6  |
+| ![](datasets_results_plots/MNIST_digits_scores_deep_40epoch_1K.png)
+| Layers = 5  |
+| ![](datasets_results_plots/MNIST_digits_scores_deep_fitted_40epoch_1K.png)  |
+| Layers = 3  |
+| ![](datasets_results_plots/MNIST_digits_scores_regular_40epoch_1K.png)  |
 
 # Conclusions
+
+We can see the choice of the best optimizer will influenced mostly by the depth of the model (number of layers).
+For example, Adam optimizer may work well for shallow models with fewer layers, while AdamW and AAdam optimizers may be better suited for deeper models with more layers.
+In those experiments Adam optimizer performed better:
+- MNIST digits: 
+    - Layers = 3
+    - Layers = 5
+- Cover Type
+    - Layers = 3
+In those experiments AdamW and AAdam performed better:
+- MNIST digits: 
+    - Layers = 9
+- Cover Type
+    - Layers = 6
+    - Layers = 9
+   
+This is because deeper models often have a larger number of parameters, which can make it more difficult for the optimizer to converge and avoid overfitting. Regularization techniques like weight decay (used in AdamW) and accumulated gradients (used in AAdam) can help address these issues, and may be more effective for deep models.
+
+Therefore, if you have a deep neural network, it may be a good idea to consider using AdamW or AAdam optimizer instead of Adam optimizer. However, it is important to experiment with different optimizers and hyperparameters to find the best fit for your specific model and dataset.
