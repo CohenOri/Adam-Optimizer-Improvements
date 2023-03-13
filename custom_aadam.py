@@ -14,7 +14,8 @@ class CustomAAdamOptimizer(AdamOptimizer):
     def _get_updates(self, grads):
         """Get the values used to update params with given gradients
         Update rules are of AAdam optimizer introduced at:
-
+        IMPROVING ADAM OPTIMIZER by Ange Tato & Roger Nkambou
+        https://openreview.net/pdf?id=HJfpZq1DM
         and slightly adjusted for sklearn update rules
 
         Parameters

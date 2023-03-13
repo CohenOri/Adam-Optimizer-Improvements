@@ -83,8 +83,8 @@ def init_params(architecture: str):
 
     return models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names
 
-
-models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('deep-fitted')
+# Set here the network type
+models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('regular')
 
 
 def train_models(models_list: list,
