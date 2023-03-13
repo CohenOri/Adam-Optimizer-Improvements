@@ -121,11 +121,27 @@ def train_models(models_list: list,
         print(f'Best {model_name} test set accuracy: {model_best_test_accuracy} found at epoch #{model_best_epoch_num}')
 
 
-NUM_EPOCHS = 40
-TRAIN_SET_SIZE = 100000
+# Comment out the limits you want to ignore in current run
 
+# # Limits for Cover Type Dataset - To train in reasonable time
+# NUM_EPOCHS = 40
+# TRAIN_SET_SIZE = 100000
+
+# Limits for MNIST digits Dataset - To compare accuracy efficiently
+# without limit one epoch will be enough for over 95% accuracy
+NUM_EPOCHS = 40
+TRAIN_SET_SIZE = 1000
+
+# Comment out the dataset train you don't use in current run
+
+# Cover Type Train
+# train_models(models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names,
+#              cover_X_train, cover_y_train, cover_X_test, cover_y_test, TRAIN_SET_SIZE=TRAIN_SET_SIZE, NUM_EPOCHS=NUM_EPOCHS)
+
+# MNIST digits Train
 train_models(models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names,
-             cover_X_train, cover_y_train, cover_X_test, cover_y_test, TRAIN_SET_SIZE=TRAIN_SET_SIZE, NUM_EPOCHS=NUM_EPOCHS)
+             digits_X_train, digits_y_train, digits_X_test, digits_y_test, TRAIN_SET_SIZE=TRAIN_SET_SIZE, NUM_EPOCHS=NUM_EPOCHS)
+
 
 dataset_test_adam_accs = models_test_accuracy[0]
 dataset_test_aadam_accs = models_test_accuracy[1]
@@ -164,5 +180,9 @@ def plot_model_scores(test_adam_accs,
     fig.savefig(f'datasets_results_plots/{dataset_name}_scores.png', dpi=300)
 
 
+# Comment out the dataset name you don't use in current run
+# dataset_name = "Cover_Type"
+dataset_name = "MNIST_digits"
+
 plot_model_scores(dataset_test_adam_accs, dataset_test_aadam_accs, dataset_test_adamw_accs, dataset_test_sgd_accs,
-                  dataset_name="Cover_Type", NUM_EPOCHS_FOR_SCLAE=NUM_EPOCHS)
+                  dataset_name=dataset_name, NUM_EPOCHS_FOR_SCLAE=NUM_EPOCHS)
