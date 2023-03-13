@@ -32,13 +32,14 @@ or faster training time with the same accuracy, therefore we suggest using them.
 
 # Experience Setup
 Experience setup is as following:
-## Optimizers:
+### Optimizers:
 We compared 4 different optimizers
 1. Adam - built-in sklearn
 2. AAdam - Implemented manually in `custom_aadam.py`
 3. AdamW - Implemented manually in `custom_adamw.py`
 4. SGD - built-in sklearn
 
+### Datasets:
 Over 2 different datasets:
 1. MNIST Digits
 2. Cover Type
