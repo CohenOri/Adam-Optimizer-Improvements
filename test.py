@@ -51,6 +51,8 @@ def construct_model(solver: str, architecture: str = 'regular'):
         layers = (256, 128, 128, 64, 64, 32)  # 6 layers
     elif architecture == 'ultra-deep':
         layers = (1024, 512, 256, 128, 64, 64, 32, 32, 16)  # 9 layers
+    elif architecture == 'deep-fitted':
+        layers = (1728, 864, 432, 216, 108)  # 5 layers
     else:
         raise ValueError(f'No such architecture: {architecture}')
 
@@ -82,7 +84,7 @@ def init_params(architecture: str):
     return models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names
 
 
-models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('deep')
+models_list, models_test_accuracy, models_best_test_accuracy, models_best_epoch_num, models_names = init_params('deep-fitted')
 
 
 def train_models(models_list: list,
