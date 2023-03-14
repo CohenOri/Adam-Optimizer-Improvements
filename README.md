@@ -43,7 +43,11 @@ The process of stating those rules, in itself is some sort of optimization chall
 that we approached in less methodical way but with trial and error (which is often the case in Machine Learning).
 
 ## What are Optimizers?
+In machine learning, optimizers are algorithms or methods used to update the parameters of a machine learning model to minimize the loss function during training. The loss function measures how well the model's predictions match the actual target values, and the goal of optimization is to find the values of the model's parameters that result in the lowest possible loss.
 
+Optimizers work by adjusting the weights and biases of the model in response to the gradients of the loss function with respect to these parameters. The gradients indicate the direction of steepest ascent of the loss function, and the optimizer takes steps in the opposite direction to descend the loss surface.
+
+There are many different types of optimizers used in machine learning, each with its own strengths and weaknesses. Some popular optimizers include Stochastic Gradient Descent (SGD), Adam, RMSProp, Adagrad, and Adadelta. Each optimizer has different hyperparameters and update rules, and choosing the right optimizer can have a significant impact on the performance of a machine learning model.
 
 ## Experience Setup
 Experience setup is as following:
