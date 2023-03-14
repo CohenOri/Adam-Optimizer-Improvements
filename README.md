@@ -135,7 +135,7 @@ In those experiments AdamW and AAdam performed better:
 This is because deeper models often have a larger number of parameters, which can make it more difficult for the optimizer to converge and avoid overfitting. Regularization techniques like weight decay (used in AdamW) and accumulated gradients (used in AAdam) can help address these issues, and may be more effective for deep models.
 Therefore, if you have a deep neural network, it may be a good idea to consider using AdamW or AAdam optimizer instead of Adam optimizer. However, it is important to experiment with different optimizers and hyperparameters to find the best fit for your specific model and dataset.
 
-few more conclusions we conclude from the graphs above:
+Few more conclusions we conclude from the graphs above:
 - When the training time is longer the AdamW has highest score between the others optimizers
 - AAdam for MNIST data set converge fastest - we can assume that it's suitable with small data sets and short training time. It doesn't supply the best results for long runs.
   Although, under 20 epochs it's has the best results
