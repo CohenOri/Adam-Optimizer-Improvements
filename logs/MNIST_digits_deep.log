@@ -1,0 +1,342 @@
+NUM_EPOCHS = 40
+TRAIN_SET_SIZE = 1000
+MNIST digits
+deep
+MNIST_digits_scores_deep_40epoch_1K.png
+
+/Users/oricohen/PycharmProjects/aadam/venv/bin/python "/Applications/PyCharm CE.app/Contents/plugins/python-ce/helpers/pydev/pydevd.py" --multiproc --qt-support=auto --client 127.0.0.1 --port 49851 --file /Users/oricohen/PycharmProjects/aadam/test.py
+Connected to pydev debugger (build 211.7628.24)
+Iteration 1, loss = 2.26010032
+/Users/oricohen/PycharmProjects/aadam/venv/lib/python3.8/site-packages/scikit_learn-1.2.1-py3.8-macosx-10.12-x86_64.egg/sklearn/neural_network/_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1) reached and the optimization hasn't converged yet.
+  warnings.warn(
+Model Adam Epoch: #1 Test accuracy: 0.25
+Iteration 2, loss = 1.90071539
+Model Adam Epoch: #2 Test accuracy: 0.31
+Iteration 3, loss = 1.31444227
+Model Adam Epoch: #3 Test accuracy: 0.77
+Iteration 4, loss = 0.72339602
+Model Adam Epoch: #4 Test accuracy: 0.91
+Iteration 5, loss = 0.34084492
+Model Adam Epoch: #5 Test accuracy: 0.94
+Iteration 6, loss = 0.19635488
+Model Adam Epoch: #6 Test accuracy: 0.95
+Iteration 7, loss = 0.13509456
+Model Adam Epoch: #7 Test accuracy: 0.965
+Iteration 8, loss = 0.09207563
+Model Adam Epoch: #8 Test accuracy: 0.97
+Iteration 9, loss = 0.06476216
+Model Adam Epoch: #9 Test accuracy: 0.965
+Iteration 10, loss = 0.04686087
+Model Adam Epoch: #10 Test accuracy: 0.985
+Iteration 11, loss = 0.03075916
+Model Adam Epoch: #11 Test accuracy: 0.965
+Iteration 12, loss = 0.02106120
+Model Adam Epoch: #12 Test accuracy: 0.975
+Iteration 13, loss = 0.02094956
+Model Adam Epoch: #13 Test accuracy: 0.965
+Iteration 14, loss = 0.03280367
+Model Adam Epoch: #14 Test accuracy: 0.95
+Iteration 15, loss = 0.01167619
+Model Adam Epoch: #15 Test accuracy: 0.985
+Iteration 16, loss = 0.01512390
+Model Adam Epoch: #16 Test accuracy: 0.98
+Iteration 17, loss = 0.00669320
+Model Adam Epoch: #17 Test accuracy: 0.985
+Iteration 18, loss = 0.01096271
+Model Adam Epoch: #18 Test accuracy: 0.97
+Iteration 19, loss = 0.00590556
+Model Adam Epoch: #19 Test accuracy: 0.945
+Iteration 20, loss = 0.01165832
+Model Adam Epoch: #20 Test accuracy: 0.95
+Iteration 21, loss = 0.01056141
+Model Adam Epoch: #21 Test accuracy: 0.935
+Iteration 22, loss = 0.00640993
+Model Adam Epoch: #22 Test accuracy: 0.93
+Iteration 23, loss = 0.00544342
+Model Adam Epoch: #23 Test accuracy: 0.93
+Iteration 24, loss = 0.00342627
+Model Adam Epoch: #24 Test accuracy: 0.94
+Iteration 25, loss = 0.01865956
+Model Adam Epoch: #25 Test accuracy: 0.96
+Iteration 26, loss = 0.00273974
+Model Adam Epoch: #26 Test accuracy: 0.945
+Iteration 27, loss = 0.00250888
+Model Adam Epoch: #27 Test accuracy: 0.965
+Iteration 28, loss = 0.00240751
+Model Adam Epoch: #28 Test accuracy: 0.945
+Iteration 29, loss = 0.00303937
+Model Adam Epoch: #29 Test accuracy: 0.975
+Iteration 30, loss = 0.00218586
+Model Adam Epoch: #30 Test accuracy: 0.95
+Iteration 31, loss = 0.00256624
+Model Adam Epoch: #31 Test accuracy: 0.975
+Iteration 32, loss = 0.01519863
+Model Adam Epoch: #32 Test accuracy: 0.985
+Iteration 33, loss = 0.00259463
+Model Adam Epoch: #33 Test accuracy: 0.975
+Iteration 34, loss = 0.00211983
+Model Adam Epoch: #34 Test accuracy: 0.98
+Iteration 35, loss = 0.00205368
+Model Adam Epoch: #35 Test accuracy: 0.98
+Iteration 36, loss = 0.00201545
+Model Adam Epoch: #36 Test accuracy: 0.98
+Iteration 37, loss = 0.00195840
+Model Adam Epoch: #37 Test accuracy: 0.98
+Iteration 38, loss = 0.00201709
+Model Adam Epoch: #38 Test accuracy: 0.98
+Iteration 39, loss = 0.00442453
+Model Adam Epoch: #39 Test accuracy: 0.985
+Iteration 40, loss = 0.00182179
+Model Adam Epoch: #40 Test accuracy: 0.985
+Iteration 1, loss = 2.30027369
+Model Aadam Epoch: #1 Test accuracy: 0.27
+/Users/oricohen/PycharmProjects/aadam/venv/lib/python3.8/site-packages/scikit_learn-1.2.1-py3.8-macosx-10.12-x86_64.egg/sklearn/neural_network/_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1) reached and the optimization hasn't converged yet.
+  warnings.warn(
+Iteration 2, loss = 2.11978991
+Model Aadam Epoch: #2 Test accuracy: 0.205
+Iteration 3, loss = 1.78550108
+Model Aadam Epoch: #3 Test accuracy: 0.37
+Iteration 4, loss = 1.33577257
+Model Aadam Epoch: #4 Test accuracy: 0.705
+Iteration 5, loss = 0.85815859
+Model Aadam Epoch: #5 Test accuracy: 0.89
+Iteration 6, loss = 0.48003684
+Model Aadam Epoch: #6 Test accuracy: 0.915
+Iteration 7, loss = 0.27911665
+Model Aadam Epoch: #7 Test accuracy: 0.945
+Iteration 8, loss = 0.17540424
+Model Aadam Epoch: #8 Test accuracy: 0.955
+Iteration 9, loss = 0.11699586
+Model Aadam Epoch: #9 Test accuracy: 0.965
+Iteration 10, loss = 0.08077494
+Model Aadam Epoch: #10 Test accuracy: 0.97
+Iteration 11, loss = 0.05768629
+Model Aadam Epoch: #11 Test accuracy: 0.97
+Iteration 12, loss = 0.04033300
+Model Aadam Epoch: #12 Test accuracy: 0.97
+Iteration 13, loss = 0.02819777
+Model Aadam Epoch: #13 Test accuracy: 0.97
+Iteration 14, loss = 0.02365859
+Model Aadam Epoch: #14 Test accuracy: 0.965
+Iteration 15, loss = 0.01922440
+Model Aadam Epoch: #15 Test accuracy: 0.965
+Iteration 16, loss = 0.01583349
+Model Aadam Epoch: #16 Test accuracy: 0.965
+Iteration 17, loss = 0.01237905
+Model Aadam Epoch: #17 Test accuracy: 0.955
+Iteration 18, loss = 0.01078796
+Model Aadam Epoch: #18 Test accuracy: 0.945
+Iteration 19, loss = 0.00990276
+Model Aadam Epoch: #19 Test accuracy: 0.945
+Iteration 20, loss = 0.00832687
+Model Aadam Epoch: #20 Test accuracy: 0.945
+Iteration 21, loss = 0.00672095
+Model Aadam Epoch: #21 Test accuracy: 0.955
+Iteration 22, loss = 0.00528070
+Model Aadam Epoch: #22 Test accuracy: 0.96
+Iteration 23, loss = 0.00459460
+Model Aadam Epoch: #23 Test accuracy: 0.97
+Iteration 24, loss = 0.00419851
+Model Aadam Epoch: #24 Test accuracy: 0.965
+Iteration 25, loss = 0.00393108
+Model Aadam Epoch: #25 Test accuracy: 0.965
+Iteration 26, loss = 0.00376877
+Model Aadam Epoch: #26 Test accuracy: 0.965
+Iteration 27, loss = 0.00364690
+Model Aadam Epoch: #27 Test accuracy: 0.965
+Iteration 28, loss = 0.00354743
+Model Aadam Epoch: #28 Test accuracy: 0.965
+Iteration 29, loss = 0.00347052
+Model Aadam Epoch: #29 Test accuracy: 0.965
+Iteration 30, loss = 0.00340445
+Model Aadam Epoch: #30 Test accuracy: 0.965
+Iteration 31, loss = 0.00334970
+Model Aadam Epoch: #31 Test accuracy: 0.965
+Iteration 32, loss = 0.00330316
+Model Aadam Epoch: #32 Test accuracy: 0.965
+Iteration 33, loss = 0.00326106
+Model Aadam Epoch: #33 Test accuracy: 0.965
+Iteration 34, loss = 0.00322588
+Model Aadam Epoch: #34 Test accuracy: 0.965
+Iteration 35, loss = 0.00319375
+Model Aadam Epoch: #35 Test accuracy: 0.965
+Iteration 36, loss = 0.00316575
+Model Aadam Epoch: #36 Test accuracy: 0.965
+Iteration 37, loss = 0.00314052
+Model Aadam Epoch: #37 Test accuracy: 0.965
+Iteration 38, loss = 0.00311772
+Model Aadam Epoch: #38 Test accuracy: 0.965
+Iteration 39, loss = 0.00309750
+Model Aadam Epoch: #39 Test accuracy: 0.965
+Iteration 40, loss = 0.00307855
+Model Aadam Epoch: #40 Test accuracy: 0.965
+Iteration 1, loss = 2.26010032
+Model AdamW Epoch: #1 Test accuracy: 0.25
+/Users/oricohen/PycharmProjects/aadam/venv/lib/python3.8/site-packages/scikit_learn-1.2.1-py3.8-macosx-10.12-x86_64.egg/sklearn/neural_network/_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1) reached and the optimization hasn't converged yet.
+  warnings.warn(
+Iteration 2, loss = 1.90071539
+Model AdamW Epoch: #2 Test accuracy: 0.31
+Iteration 3, loss = 1.31444227
+Model AdamW Epoch: #3 Test accuracy: 0.77
+Iteration 4, loss = 0.72339602
+Model AdamW Epoch: #4 Test accuracy: 0.91
+Iteration 5, loss = 0.34084492
+Model AdamW Epoch: #5 Test accuracy: 0.94
+Iteration 6, loss = 0.19635488
+Model AdamW Epoch: #6 Test accuracy: 0.95
+Iteration 7, loss = 0.13509456
+Model AdamW Epoch: #7 Test accuracy: 0.965
+Iteration 8, loss = 0.09207563
+Model AdamW Epoch: #8 Test accuracy: 0.97
+Iteration 9, loss = 0.06476216
+Model AdamW Epoch: #9 Test accuracy: 0.965
+Iteration 10, loss = 0.04686087
+Model AdamW Epoch: #10 Test accuracy: 0.985
+Iteration 11, loss = 0.03075916
+Model AdamW Epoch: #11 Test accuracy: 0.965
+Iteration 12, loss = 0.02106120
+Model AdamW Epoch: #12 Test accuracy: 0.975
+Iteration 13, loss = 0.02094956
+Model AdamW Epoch: #13 Test accuracy: 0.965
+Iteration 14, loss = 0.03280367
+Model AdamW Epoch: #14 Test accuracy: 0.95
+Iteration 15, loss = 0.01167619
+Model AdamW Epoch: #15 Test accuracy: 0.985
+Iteration 16, loss = 0.01512390
+Model AdamW Epoch: #16 Test accuracy: 0.98
+Iteration 17, loss = 0.00669320
+Model AdamW Epoch: #17 Test accuracy: 0.985
+Iteration 18, loss = 0.01096271
+Model AdamW Epoch: #18 Test accuracy: 0.97
+Iteration 19, loss = 0.00590556
+Model AdamW Epoch: #19 Test accuracy: 0.945
+Iteration 20, loss = 0.01165832
+Model AdamW Epoch: #20 Test accuracy: 0.95
+Iteration 21, loss = 0.01056141
+Model AdamW Epoch: #21 Test accuracy: 0.935
+Iteration 22, loss = 0.00640993
+Model AdamW Epoch: #22 Test accuracy: 0.93
+Iteration 23, loss = 0.00544342
+Model AdamW Epoch: #23 Test accuracy: 0.93
+Iteration 24, loss = 0.00342627
+Model AdamW Epoch: #24 Test accuracy: 0.94
+Iteration 25, loss = 0.01865956
+Model AdamW Epoch: #25 Test accuracy: 0.96
+Iteration 26, loss = 0.00273974
+Model AdamW Epoch: #26 Test accuracy: 0.945
+Iteration 27, loss = 0.00250888
+Model AdamW Epoch: #27 Test accuracy: 0.965
+Iteration 28, loss = 0.00240751
+Model AdamW Epoch: #28 Test accuracy: 0.945
+Iteration 29, loss = 0.00303937
+Model AdamW Epoch: #29 Test accuracy: 0.975
+Iteration 30, loss = 0.00218586
+Model AdamW Epoch: #30 Test accuracy: 0.95
+Iteration 31, loss = 0.00256624
+Model AdamW Epoch: #31 Test accuracy: 0.975
+Iteration 32, loss = 0.01519863
+Model AdamW Epoch: #32 Test accuracy: 0.985
+Iteration 33, loss = 0.00259463
+Model AdamW Epoch: #33 Test accuracy: 0.975
+Iteration 34, loss = 0.00211983
+Model AdamW Epoch: #34 Test accuracy: 0.98
+Iteration 35, loss = 0.00205368
+Model AdamW Epoch: #35 Test accuracy: 0.98
+Iteration 36, loss = 0.00201545
+Model AdamW Epoch: #36 Test accuracy: 0.98
+Iteration 37, loss = 0.00195840
+Model AdamW Epoch: #37 Test accuracy: 0.98
+Iteration 38, loss = 0.00201710
+Model AdamW Epoch: #38 Test accuracy: 0.98
+Iteration 39, loss = 0.00442452
+Model AdamW Epoch: #39 Test accuracy: 0.985
+Iteration 40, loss = 0.00182179
+Model AdamW Epoch: #40 Test accuracy: 0.985
+Iteration 1, loss = 2.35505473
+Model SGD Epoch: #1 Test accuracy: 0.11
+/Users/oricohen/PycharmProjects/aadam/venv/lib/python3.8/site-packages/scikit_learn-1.2.1-py3.8-macosx-10.12-x86_64.egg/sklearn/neural_network/_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (1) reached and the optimization hasn't converged yet.
+  warnings.warn(
+Iteration 2, loss = 2.35115135
+Model SGD Epoch: #2 Test accuracy: 0.11
+Iteration 3, loss = 2.34749896
+Model SGD Epoch: #3 Test accuracy: 0.115
+Iteration 4, loss = 2.34398145
+Model SGD Epoch: #4 Test accuracy: 0.12
+Iteration 5, loss = 2.34055816
+Model SGD Epoch: #5 Test accuracy: 0.12
+Iteration 6, loss = 2.33723416
+Model SGD Epoch: #6 Test accuracy: 0.125
+Iteration 7, loss = 2.33398712
+Model SGD Epoch: #7 Test accuracy: 0.135
+Iteration 8, loss = 2.33081290
+Model SGD Epoch: #8 Test accuracy: 0.14
+Iteration 9, loss = 2.32772045
+Model SGD Epoch: #9 Test accuracy: 0.14
+Iteration 10, loss = 2.32466508
+Model SGD Epoch: #10 Test accuracy: 0.145
+Iteration 11, loss = 2.32164211
+Model SGD Epoch: #11 Test accuracy: 0.145
+Iteration 12, loss = 2.31865021
+Model SGD Epoch: #12 Test accuracy: 0.16
+Iteration 13, loss = 2.31570254
+Model SGD Epoch: #13 Test accuracy: 0.16
+Iteration 14, loss = 2.31280868
+Model SGD Epoch: #14 Test accuracy: 0.165
+Iteration 15, loss = 2.30990502
+Model SGD Epoch: #15 Test accuracy: 0.165
+Iteration 16, loss = 2.30701586
+Model SGD Epoch: #16 Test accuracy: 0.17
+Iteration 17, loss = 2.30414867
+Model SGD Epoch: #17 Test accuracy: 0.18
+Iteration 18, loss = 2.30127061
+Model SGD Epoch: #18 Test accuracy: 0.18
+Iteration 19, loss = 2.29837751
+Model SGD Epoch: #19 Test accuracy: 0.18
+Iteration 20, loss = 2.29547412
+Model SGD Epoch: #20 Test accuracy: 0.18
+Iteration 21, loss = 2.29252784
+Model SGD Epoch: #21 Test accuracy: 0.18
+Iteration 22, loss = 2.28952524
+Model SGD Epoch: #22 Test accuracy: 0.185
+Iteration 23, loss = 2.28648712
+Model SGD Epoch: #23 Test accuracy: 0.19
+Iteration 24, loss = 2.28338109
+Model SGD Epoch: #24 Test accuracy: 0.195
+Iteration 25, loss = 2.28019311
+Model SGD Epoch: #25 Test accuracy: 0.195
+Iteration 26, loss = 2.27695055
+Model SGD Epoch: #26 Test accuracy: 0.2
+Iteration 27, loss = 2.27366286
+Model SGD Epoch: #27 Test accuracy: 0.21
+Iteration 28, loss = 2.27032545
+Model SGD Epoch: #28 Test accuracy: 0.205
+Iteration 29, loss = 2.26689879
+Model SGD Epoch: #29 Test accuracy: 0.2
+Iteration 30, loss = 2.26336130
+Model SGD Epoch: #30 Test accuracy: 0.225
+Iteration 31, loss = 2.25970206
+Model SGD Epoch: #31 Test accuracy: 0.235
+Iteration 32, loss = 2.25591284
+Model SGD Epoch: #32 Test accuracy: 0.24
+Iteration 33, loss = 2.25199831
+Model SGD Epoch: #33 Test accuracy: 0.245
+Iteration 34, loss = 2.24799056
+Model SGD Epoch: #34 Test accuracy: 0.245
+Iteration 35, loss = 2.24389139
+Model SGD Epoch: #35 Test accuracy: 0.245
+Iteration 36, loss = 2.23969803
+Model SGD Epoch: #36 Test accuracy: 0.25
+Iteration 37, loss = 2.23539539
+Model SGD Epoch: #37 Test accuracy: 0.25
+Iteration 38, loss = 2.23096097
+Model SGD Epoch: #38 Test accuracy: 0.25
+Iteration 39, loss = 2.22640807
+Model SGD Epoch: #39 Test accuracy: 0.24
+Iteration 40, loss = 2.22173883
+Model SGD Epoch: #40 Test accuracy: 0.24
+Best Adam test set accuracy: {'best_acc': 0.985} found at epoch #{'best_epoch': 10}
+Best Aadam test set accuracy: {'best_acc': 0.97} found at epoch #{'best_epoch': 10}
+Best AdamW test set accuracy: {'best_acc': 0.985} found at epoch #{'best_epoch': 10}
+Best SGD test set accuracy: {'best_acc': 0.25} found at epoch #{'best_epoch': 36}
+
+Process finished with exit code 0
