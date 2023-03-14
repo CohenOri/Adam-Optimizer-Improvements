@@ -93,7 +93,7 @@ We tested the algorithms on two data sets:
 | ![](datasets_results_plots/Cover_Type_scores_ultra-deep_40epoches_100K.png )
 | Layers = 6  |
 | ![](datasets_results_plots/Cover_Type_scores_deep_40epoches_100K.png)
-| Layers = 5  |
+| Layers = 5 (With a lot of neurons per layer) |
 | ![](datasets_results_plots/Cover_Type_scores_Deep-fitted_40epoches_100K.png)  |
 | Layers = 3  |
 | ![](datasets_results_plots/Cover_Type_Regular_40epoches_100K.png)  |
@@ -108,7 +108,7 @@ We tested the algorithms on two data sets:
 | ![](datasets_results_plots/MNIST_digits_scores_ultra-deep_40epoch_1K.png )
 | Layers = 6  |
 | ![](datasets_results_plots/MNIST_digits_scores_deep_40epoch_1K.png)
-| Layers = 5  |
+| Layers = 5 (With a lot of neurons per layer) |
 | ![](datasets_results_plots/MNIST_digits_scores_deep_fitted_40epoch_1K.png)  |
 | Layers = 3  |
 | ![](datasets_results_plots/MNIST_digits_scores_regular_40epoch_1K.png)  |
@@ -121,7 +121,6 @@ For example, Adam optimizer may work well for shallow models with fewer layers, 
 In those experiments Adam optimizer performed better:
 - MNIST digits: 
     - Layers = 3
-    - Layers = 5
 - Cover Type
     - Layers = 3
     - Layers = 5
