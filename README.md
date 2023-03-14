@@ -118,18 +118,11 @@ We tested the algorithms on two data sets:
 We can see the choice of the best optimizer will influenced mostly by the depth of the model (number of layers).
 For example, Adam optimizer may work well for shallow models with fewer layers, while AdamW and AAdam optimizers may be better suited for deeper models with more layers.
 
-In those experiments Adam optimizer performed better:
-- MNIST digits: 
-    - Layers = 3
-- Cover Type
-    - Layers = 3
-    - Layers = 5
+In Cover Type AdamW optimizer seems to always outperform Adam. AAdam has less consistent results.
 
-In those experiments AdamW and AAdam performed better:
-- Cover Type
-    - Layers = 6
-    - Layers = 9
-    - Layers = 5
+In MNIST digits:
+Adam outperform AdamW in 5 layers test - which is a surprise. On the other tests they seem to preform roughly the same.
+AAdam always converges first but only in the 5 layer test it produces relatively good results.
    
 This is because deeper models often have a larger number of parameters, which can make it more difficult for the optimizer to converge and avoid overfitting. Regularization techniques like weight decay (used in AdamW) and accumulated gradients (used in AAdam) can help address these issues, and may be more effective for deep models.
 Therefore, if you have a deep neural network, it may be a good idea to consider using AdamW or AAdam optimizer instead of Adam optimizer. However, it is important to experiment with different optimizers and hyperparameters to find the best fit for your specific model and dataset.
