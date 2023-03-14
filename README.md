@@ -126,11 +126,10 @@ In those experiments Adam optimizer performed better:
     - Layers = 5
 
 In those experiments AdamW and AAdam performed better:
-- MNIST digits: 
-    - Layers = 9
 - Cover Type
     - Layers = 6
     - Layers = 9
+    - Layers = 5
    
 This is because deeper models often have a larger number of parameters, which can make it more difficult for the optimizer to converge and avoid overfitting. Regularization techniques like weight decay (used in AdamW) and accumulated gradients (used in AAdam) can help address these issues, and may be more effective for deep models.
 Therefore, if you have a deep neural network, it may be a good idea to consider using AdamW or AAdam optimizer instead of Adam optimizer. However, it is important to experiment with different optimizers and hyperparameters to find the best fit for your specific model and dataset.
