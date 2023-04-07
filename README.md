@@ -142,7 +142,7 @@ Few more conclusions we conclude from the graphs above:
 
 [AdamW: DECOUPLED WEIGHT DECAY REGULARIZATION](https://arxiv.org/pdf/1711.05101v3.pdf)
 
-##How to run
+## How to run
 Microsoft Windows users should first set `git config core.protectNTFS false` in order to clone.
 
 1. `pip install -r requirements.txt`
